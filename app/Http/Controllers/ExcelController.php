@@ -27,9 +27,10 @@ class ExcelController extends Controller
 	                    $task->hour,
 	                	);
     				}
-					$sheet->fromArray($data, null, 'A1', false, false);
-					$headings = array('日期', '工作項目', '工作說明', '工作時數');
+					$sheet->setFontSize(15)->fromArray($data, null, 'A1', false, false);
+					$headings = array('日期', '工作項目', '工作說明', '工作時數','是否請款');
 					$sheet->prependRow(1, $headings);
+
     		});
 
     	})->export('xls');
